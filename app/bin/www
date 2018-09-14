@@ -38,6 +38,8 @@ var fs = require('fs');
 var privateKey = fs.readFileSync('./sslcert/localhost.key', 'utf8');
 var certificate = fs.readFileSync('./sslcert/localhost.crt', 'utf8');
 var credentials = { key: privateKey, cert: certificate };
+var express = require('express');
+var app = express();
 
 var portTLS = normalizePort(process.env.PORTTLS || '443');
 var serverTLS = https.createServer(credentials, app);
